@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Чашка Espresso Bar</string>
+    <string name="title2">Кофейня</string>
+    <string name="address">г. Черкассы, Ул. Лазарева 4</string>
+    <string name="email">espressobar@gmail.com</string>
+    <string name="information">Информация</string>
+    <string name="phone">(067) 236 1526</string>
+    <string name="description">Чашка Espresso Bar – это кофейня большого города с громким сервисом и веселой атмосферой.
+Наша религия – идеально приготовленный свежеобжаренный кофе.
+У нас всегда лучший эспрессо, правильный чизкейк, приветливые официанты и хорошая музыка!
+Разнообразные завтраки, сэндвичи, салаты и супы, вкуснейшие десерты – и это далеко не полный список наших талантов!
+Чашка Espresso Bar – это место встречи друзей, проведения деловых переговоров и семейного отдыха.</string>
+</resources>
