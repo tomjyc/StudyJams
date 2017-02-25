@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     final int REQUEST_BIRTHSDAY = 2;
     final int REQUEST_ABOUTME = 3;
 
-    private Person person;
+    private String firstName = "", secondName = "", birthday = "", aboutMe = "";
 
     Button btn_name, btn_birthday, btn_about_me, btn_register;
 
@@ -21,8 +21,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        person = new Person();
 
         btn_name = (Button) findViewById(R.id.btn_name);
         btn_birthday = (Button) findViewById(R.id.btn_birthday);
@@ -44,22 +42,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId()){
             case R.id.btn_name:
                 intent = new Intent(this, NameActivity.class);
-                intent.putExtra("person", person.getClass());
                 startActivityForResult(intent, REQUEST_NAME);
                 break;
             case R.id.btn_birthday:
                 intent = new Intent(this, BirthdayActivity.class);
-                intent.putExtra("person", person.getClass());
                 startActivityForResult(intent, REQUEST_BIRTHSDAY);
                 break;
             case R.id.btn_about_me:
-                intent = new Intent(this, NameActivity.class);
-                intent.putExtra("person", person.getClass());
+                intent = new Intent(this, AboutMeActivity.class);
                 startActivityForResult(intent, REQUEST_ABOUTME);
                 break;
             case R.id.btn_register:
                 intent = new Intent(this, RegisterActivity.class);
-                intent.putExtra("person", person.getClass());
+                intent.putExtra("name", firstName);
+                intent.putExtra("secondName", secondName);
+                intent.putExtra("birthday", birthday);
+                intent.putExtra("aboutMe", aboutMe);
                 startActivity(intent);
                 break;
         }
@@ -71,7 +69,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onActivityResult(requestCode, resultCode, data);
 
         if (resultCode == RESULT_OK) {
-            person = data.getParcelableExtra("person");
+            switch (requestCode){
+                case REQUEST_NAME:
+                    firstName = data.getStringExtra("name");
+                    secondName = data.getStringExtra("secondName");
+                    break;
+                case REQUEST_BIRTHSDAY:
+                    birthday = data.getStringExtra("birthday");
+                    break;
+                case REQUEST_ABOUTME:
+                    aboutMe = data.getStringExtra("aboutMe");
+                    break;
+            }
         }else Toast.makeText(MainActivity.this, "Wrong result", Toast.LENGTH_SHORT).show();
     }
 }

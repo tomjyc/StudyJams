@@ -34,9 +34,9 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/btn_am_done"
         android:layout_alignRight="@+id/btn_am_cancel"
         android:layout_alignEnd="@+id/btn_am_cancel"
         android:textAlignment="center"
-        android:text="About me" />
+        android:text="About me"
+        android:layout_above="@+id/btn_am_done" />
 </RelativeLayout>
